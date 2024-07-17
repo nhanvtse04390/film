@@ -1,0 +1,33 @@
+.movieCard {
+    width: 300px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.movieCard:hover {
+    transform: translateY(-5px);
+}
+
+.movieCard img {
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.movieInfo {
+    padding: 12px;
+}
+
+.movieInfo h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.movieInfo p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #555;
+}
