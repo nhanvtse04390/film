@@ -1,7 +1,7 @@
-// components/MovieCard.tsx
+'use client'
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import styles from '../styles/MovieCard.module.css';
-import Link from 'next/link'; // Import Link từ Next.js thay vì sử dụng useRouter
 
 interface Props {
     movie: {
@@ -13,14 +13,20 @@ interface Props {
 }
 
 const MovieCard: React.FC<Props> = ({ movie }) => {
+    const router = useRouter();
+
+    const handleMovieClick = () => {
+        router.push(`/movie/${movie.id}`);
+    };
+
     return (
-        <Link href={`/movies/${movie.id}`} className={styles.movieCard}>
-                <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} />
-                <div className={styles.movieInfo}>
-                    <h3>{movie.title}</h3>
-                    <p>{movie.overview}</p>
-                </div>
-        </Link>
+        <div className={styles.movieCard} onClick={handleMovieClick}>
+            <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} />
+            <div className={styles.movieInfo}>
+                <h3>{movie.title}</h3>
+                <p>{movie.overview}</p>
+            </div>
+        </div>
     );
 };
 
